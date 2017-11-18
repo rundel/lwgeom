@@ -149,6 +149,8 @@ calculate_mbc_3(const SUPPORTING_POINTS* support, LWBOUNDINGCIRCLE* mbc)
 	d2 = distance2d_pt_pt(mbc->center, support->p2);
 	d3 = distance2d_pt_pt(mbc->center, support->p3);
 
+	printf("mbc_3: %f %f %f\n", d1, d2, d3);
+	
 	mbc->radius = FP_MAX(FP_MAX(d1, d2), d3);
 }
 
