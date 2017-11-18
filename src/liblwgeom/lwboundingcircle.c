@@ -202,8 +202,14 @@ calculate_mbc(const POINT2D** points, uint32_t max_n, SUPPORTING_POINTS* support
 			SUPPORTING_POINTS next_support;
 			memcpy(&next_support, support, sizeof(SUPPORTING_POINTS));
 
-			printf("Start: %u (%f, %f) %f\n", i, mbc->center->x, mbc->center->y, mbc->radius);
+			printf("Start: %u (%f, %f) %f :", i, mbc->center->x, mbc->center->y, mbc->radius);
 			add_supporting_point(&next_support, points[i]);
+			
+			if (next_support.p1 != NULL) printf(" (%f, %f)", next_support.p1->x, next_support.p1->y);
+			if (next_support.p2 != NULL) printf(" (%f, %f)", next_support.p2->x, next_support.p2->y);
+			if (next_support.p3 != NULL) printf(" (%f, %f)", next_support.p3->x, next_support.p3->y);
+			printf("\n");
+			
 			if (!calculate_mbc(points, i, &next_support, mbc))
 			{
 				return LW_FAILURE;
