@@ -179,6 +179,9 @@ calculate_mbc(const POINT2D** points, uint32_t max_n, SUPPORTING_POINTS* support
 	{
 		return LW_FAILURE;
 	}
+	
+	printf("MBC    : (%f, %f) %f", mbc->center->x, mbc->center->y, mbc->radius);
+	
 
 	if (num_supporting_points(support) == 3)
 	{
@@ -280,7 +283,6 @@ lwgeom_calculate_mbc(const LWGEOM* g)
 	 * */
 	success = calculate_mbc((const POINT2D**) points, num_points, support, result);
 
-	printf("MBC    : (%f, %f) %f", result->center->x, result->center->y, result->radius);
 	//printf("Supp Pt: (%f, %f) (%f, %f) (%f, %f)", 
   //      support->p1->x, support->p1->y, 
   //      support->p2->x, support->p2->y,
