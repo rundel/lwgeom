@@ -24,6 +24,7 @@
 
 
 #include <string.h>
+#include <float.h>
 #include "liblwgeom_internal.h"
 
 typedef struct {
@@ -88,7 +89,12 @@ point_inside_circle(const POINT2D* p, const LWBOUNDINGCIRCLE* c)
 		return LW_FALSE;
 	
 	if (c->radius == c->radius)
-	  printf("pic: (%d) %f %f %f\n", distance2d_pt_pt(p, c->center) > c->radius, distance2d_pt_pt(p, c->center), c->radius, distance2d_pt_pt(p, c->center) - c->radius);
+	  printf("pic: (%d) %f %f %f (%d, %d)\n", 
+          distance2d_pt_pt(p, c->center) > c->radius, 
+          distance2d_pt_pt(p, c->center), c->radius, distance2d_pt_pt(p, c->center) - c->radius,
+          distance2d_pt_pt(p, c->center) - c->radius > DBL_MIN,
+          distance2d_pt_pt(p, c->center) - c->radius > DBL_EPS
+    );
 	if (distance2d_pt_pt(p, c->center) > c->radius)
 		return LW_FALSE;
 
