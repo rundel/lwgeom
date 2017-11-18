@@ -95,7 +95,7 @@ point_inside_circle(const POINT2D* p, const LWBOUNDINGCIRCLE* c)
           distance2d_pt_pt(p, c->center) - c->radius > DBL_MIN,
           distance2d_pt_pt(p, c->center) - c->radius > DBL_EPSILON
     );
-	if (distance2d_pt_pt(p, c->center) > c->radius)
+	if (distance2d_pt_pt(p, c->center) - c->radius > DBL_EPSILON)
 		return LW_FALSE;
 
 	return LW_TRUE;
