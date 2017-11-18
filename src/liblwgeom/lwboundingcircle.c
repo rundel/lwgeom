@@ -147,16 +147,7 @@ calculate_mbc_3(const SUPPORTING_POINTS* support, LWBOUNDINGCIRCLE* mbc)
 {
 	double d1, d2, d3;
 	
-	printf("MBC3");
-	printf(" (%f, %f)", mbc->center->x, mbc->center->y);
-	
 	circumcenter(support->p1, support->p2, support->p3, mbc->center);
-
-	printf("->(%f, %f)", mbc->center->x, mbc->center->y);
-	printf(" (%f, %f)",   support->p1->x, support->p1->y);
-	printf(" (%f, %f)",   support->p2->x, support->p2->y);
-	printf(" (%f, %f)\n", support->p3->x, support->p3->y);
-	
 	
 	d1 = distance2d_pt_pt(mbc->center, support->p1);
 	d2 = distance2d_pt_pt(mbc->center, support->p2);
