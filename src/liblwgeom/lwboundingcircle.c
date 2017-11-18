@@ -113,7 +113,8 @@ circumcenter(const POINT2D* a, const POINT2D* b, const POINT2D* c, POINT2D* resu
 	double numx = det(ay, ax * ax + ay * ay, by, bx * bx + by * by);
 	double numy = det(ax, ax * ax + ay * ay, bx, bx * bx + by * by);
 
-	printf("Circum: cx=%f cy=%f ax=%f ay=%f bx=%f by=%f denom=%f numx=%f numy=%f", cx, cy, ax, ay, bx, by, denom, numx, numy);
+	printf("points: a=(%f, %f) b=(%f, %f) c=(%f, %f)\n", a->x, a->y, b->x, b->y, c->x, c->y);
+	printf("Circum: cx=%f cy=%f ax=%f ay=%f bx=%f by=%f denom=%f numx=%f numy=%f\n", cx, cy, ax, ay, bx, by, denom, numx, numy);
 	
 	result->x = cx - numx / denom;
 	result->y = cy + numy / denom;
