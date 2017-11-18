@@ -251,6 +251,9 @@ lwgeom_calculate_mbc(const LWGEOM* g)
 	num_points = lwgeom_count_vertices(g);
 	it = lwpointiterator_create(g);
 	points = lwalloc(num_points * sizeof(POINT2D*));
+	
+	printf("Num_points: %u\n", num_points);
+	
 	for (i = 0; i < num_points; i++)
 	{
 		if(!lwpointiterator_next(it, &p))
