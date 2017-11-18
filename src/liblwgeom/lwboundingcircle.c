@@ -118,6 +118,8 @@ circumcenter(const POINT2D* a, const POINT2D* b, const POINT2D* c, POINT2D* resu
 	
 	result->x = cx - numx / denom;
 	result->y = cy + numy / denom;
+	
+	printf("Result: (%f %f)\n", result->x, result->y);
 }
 
 static void
