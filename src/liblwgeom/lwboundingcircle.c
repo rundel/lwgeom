@@ -180,9 +180,6 @@ calculate_mbc(const POINT2D** points, uint32_t max_n, SUPPORTING_POINTS* support
 		return LW_FAILURE;
 	}
 	
-	printf("MBC    : (%f, %f) %f\n", mbc->center->x, mbc->center->y, mbc->radius);
-	
-
 	if (num_supporting_points(support) == 3)
 	{
 		/* If we're entering the function with three supporting points already, our circle
@@ -212,6 +209,9 @@ calculate_mbc(const POINT2D** points, uint32_t max_n, SUPPORTING_POINTS* support
 			}
 		}
 	}
+	
+	printf("MBC: %u (%f, %f) %f\n", i, mbc->center->x, mbc->center->y, mbc->radius);
+	
 
 	return LW_SUCCESS;
 }
