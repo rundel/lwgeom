@@ -187,6 +187,7 @@ calculate_mbc(const POINT2D** points, uint32_t max_n, SUPPORTING_POINTS* support
 		 * needed to. So, there's no point in proceeding further.  Welzl (1991) provides
 		 * a much better explanation of why this works.
 		 * */
+		printf("EXIT HERE!\n");
 		return LW_SUCCESS;
 	}
 
