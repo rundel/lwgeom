@@ -194,6 +194,8 @@ calculate_mbc(const POINT2D** points, uint32_t max_n, SUPPORTING_POINTS* support
 	{
 		if (!point_inside_circle(points[i], mbc))
 		{
+		  printf("MBC: %u (%f, %f) %f\n", i, mbc->center->x, mbc->center->y, mbc->radius);
+		  
 			/* We've run into a point that isn't inside our circle.  To fix this, we'll
 			 * go back in time, and re-run the algorithm for each point we've seen so
 			 * far, with the constraint that the current point must be on the boundary
@@ -209,10 +211,7 @@ calculate_mbc(const POINT2D** points, uint32_t max_n, SUPPORTING_POINTS* support
 			}
 		}
 	}
-	
-	printf("MBC: %u (%f, %f) %f\n", i, mbc->center->x, mbc->center->y, mbc->radius);
-	
-
+  
 	return LW_SUCCESS;
 }
 
