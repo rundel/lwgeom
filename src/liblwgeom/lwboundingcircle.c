@@ -86,8 +86,9 @@ point_inside_circle(const POINT2D* p, const LWBOUNDINGCIRCLE* c)
 {
 	if (!c)
 		return LW_FALSE;
-  
-  printf("pic: (%d) %f %f %f\n", distance2d_pt_pt(p, c->center) > c->radius, distance2d_pt_pt(p, c->center), c->radius, distance2d_pt_pt(p, c->center) - c->radius);
+	
+	if (c->radius == c->radius)
+	  printf("pic: (%d) %f %f %f\n", distance2d_pt_pt(p, c->center) > c->radius, distance2d_pt_pt(p, c->center), c->radius, distance2d_pt_pt(p, c->center) - c->radius);
 	if (distance2d_pt_pt(p, c->center) > c->radius)
 		return LW_FALSE;
 
