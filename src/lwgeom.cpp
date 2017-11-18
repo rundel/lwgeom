@@ -141,16 +141,23 @@ Rcpp::List CPL_minimum_bounding_circle(Rcpp::List sfc) {
   std::vector<LWGEOM *> lwgeom_v = lwgeom_from_sfc(sfc);
   for (size_t i = 0; i < lwgeom_v.size(); i++) {
     LWBOUNDINGCIRCLE *lwg_ret = lwgeom_calculate_mbc(lwgeom_v[i]);
-	if (lwg_ret == NULL)
-		Rcpp::stop("could not compute minimum bounding circle"); // #nocov
+	  
+	  if (lwg_ret == NULL)
+		  Rcpp::stop("could not compute minimum bounding circle"); // #nocov
+  
+    Rcpp::Rcout << "Center x: " << lwg_ret->center->x << "\n" 
+                << "Center y: " << lwg_ret->center->x << "\n" 
+                << "Radius  : " << lwg_ret->radius << "\n";
+  
     center[i] = Rcpp::NumericVector::create(
       Rcpp::Named("x") = lwg_ret->center->x,
       Rcpp::Named("y") = lwg_ret->center->y
     );
     radius[i] = lwg_ret->radius;
     lwgeom_free(lwgeom_v[i]);
-	lwboundingcircle_destroy(lwg_ret);
+	  lwboundingcircle_destroy(lwg_ret);
   }
+  
   return Rcpp::List::create(
     Rcpp::Named("center") = center,
     Rcpp::Named("radius") = radius
